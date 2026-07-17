@@ -1,0 +1,66 @@
+// index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimalist Image Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="gallery">
+        <img src="images/img1.jpg" alt="" loading="lazy" />
+        <img src="images/img2.jpg" alt="" loading="lazy" />
+        <img src="images/img3.jpg" alt="" loading="lazy" />
+        <img src="images/img4.jpg" alt="" loading="lazy" />
+        <img src="images/img5.jpg" alt="" loading="lazy" />
+        <img src="images/img6.jpg" alt="" loading="lazy" />
+    </div>
+</body>
+</html>
+
+// style.css
+body {
+    background: #fafbfc;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+    max-width: 1100px;
+    margin: 48px auto 48px auto;
+    padding: 0 18px;
+}
+
+.gallery img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+    background: #ececec;
+    transition: transform 0.25s cubic-bezier(0.36,0.66,0.04,1), box-shadow 0.25s;
+    box-shadow: 0 2px 18px 0 rgba(0,0,0,0.02);
+}
+
+.gallery img:hover {
+    transform: scale(1.035);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.08);
+    z-index: 2;
+}
+
+@media (max-width: 600px) {
+    .gallery {
+        gap: 9px;
+        padding: 0 5px;
+    }
+    .gallery img {
+        border-radius: 8px;
+    }
+}
+
+// There is no script.js required since all behaviors are handled with HTML and CSS only.
